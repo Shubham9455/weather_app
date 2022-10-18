@@ -7,6 +7,8 @@ import NavBar from '../componants/NavBar'
 const HomePage = () => {
   const [current,setCurrent] = useState(null);
   const [location,setLocation] = useState(null);
+  const [forecast,setForecast] = useState(null);
+  const [querry,setQuerry] = useState("Varanasi");
 
   const getData = async (querry) => {
     const options = {
@@ -17,7 +19,7 @@ const HomePage = () => {
       },
     };
     await fetch(
-      `https://weatherapi-com.p.rapidapi.com/current.json?q=${querry}`,
+      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${querry}&days=5`,
       options
     )
       .then((response) => response.json())
@@ -25,18 +27,25 @@ const HomePage = () => {
         console.log(response);
         setCurrent(response.current);
         setLocation(response.location);
+        setForecast(response.forecast);
       })
       .catch((err) => console.error(err));
   }
   useEffect(() => {
-    getData("varanasi");
-  }, []);
+    getData(querry);
+  }, [querry]);
 
   return (
-    (current == null)?<h1>Loading</h1>:(<div>
-      <NavBar />
-      <HeroSection data = {current}/>
-    </div>)
+    <>
+      <NavBar setquerry={setQuerry} querry={querry} />
+      {current == null ? (
+        <h1>Loading</h1>
+      ) : (
+        <div>
+          <HeroSection data={current} location={location} forecast={forecast} />
+        </div>
+      )}
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -6,13 +6,15 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-
-
-
-const NavBar = () => {
+const NavBar = (prop) => {
   return (
     <div>
-      <Navbar bg="dark" expand="lg" variant="dark" style={{position:"fixed",width:"100%"}}>
+      <Navbar
+        bg="dark"
+        expand="lg"
+        variant="dark"
+        style={{ position: "fixed", width: "100%", zIndex: "1" }}
+      >
         <Container fluid>
           <Navbar.Brand href="#">Weatherly</Navbar.Brand>
           <Navbar.Toggle aria-controls="" />
@@ -38,20 +40,28 @@ const NavBar = () => {
                 Link
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
+            <Form className="d-flex" style={{marginRight:"20px"}} onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="city_search"
+                placeholder="Saerch for City"
+                style={{
+                  width: "300px",
+                  margin: "10px auto",
+                  borderRadius: "25px",
+                  paddingInline: "20px",
+                  backgroundColor:"grey",
+                  padding:"5px"
+                }}
+                onChange={(e) => {
+                  prop.setquerry(e.target.value);
+                }}
               />
-              <Button variant="outline-success">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </div>
   );
-}
+};
 
-export default NavBar
+export default NavBar;

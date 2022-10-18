@@ -38,13 +38,54 @@ video {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  top: 200px;
+  top: 150px;
   position: fixed;
 
 }
 
+.city_temp_weather >div >h1 {
+  font-size: 3rem;
+}
+
+
+
+.other_details {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 90%;
+  border-radius: 10px;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top: 380px;
+  position: fixed;
+
+}
+
+.others *{
+  margin: 0 1rem;
+}
+
 .weather_report > img {
   height: 100px;
+}
+
+
+
+
+.three_day_forecast {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 90%;
+  border-radius: 10px;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top:550px;
+  position: fixed;
+
 }
 
 
@@ -55,11 +96,47 @@ video {
 }
 
 @media screen and (max-width: 768px) {
+
   .hero-container > h1 {
     font-size: 50px;
   }
 
   .hero-container > p {
     font-size: 30px;
-  } 
+  }
+
+  .three_day_forecast{
+    top: 500px;
+  }
+
+  .city_temp_weather{
+    top: 100px;
+  }
+  .other_details{
+    top: 350px;
+    /* display: block; */
+    /* font-size: ; */
+    
+  }
+  
+  .city_temp_weather * {
+    font-size: 0.8rem;
+  }
+  .city_temp_weather >div >h1 {
+    font-size: 0.8rem;
+  }
+  .others *{
+    display: block;
+    margin: 0 1rem;
+    font-size: 0.6rem;
+  }
+
+  .forecast>h3{
+    font-size: 0.8rem;
+  }
+  .forecast>h4{
+    font-size: 0.8rem;
+  }
+
+  
 }
