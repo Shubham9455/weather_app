@@ -16,7 +16,10 @@ const NavBar = (prop) => {
         style={{ position: "fixed", width: "100%", zIndex: "1" }}
       >
         <Container fluid>
-          <Navbar.Brand href="#">Weatherly</Navbar.Brand>
+          <Navbar.Brand
+          >
+            Weatherly
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -40,7 +43,11 @@ const NavBar = (prop) => {
                 Link
               </Nav.Link>
             </Nav>
-            <Form className="d-flex" style={{marginRight:"20px"}} onSubmit={(e) => e.preventDefault()}>
+            <Form
+              className="d-flex"
+              style={{ marginRight: "20px" }}
+              onSubmit={(e) => e.preventDefault()}
+            >
               <input
                 type="city_search"
                 placeholder="Saerch for City"
@@ -49,12 +56,13 @@ const NavBar = (prop) => {
                   margin: "10px auto",
                   borderRadius: "25px",
                   paddingInline: "20px",
-                  backgroundColor:"grey",
-                  padding:"5px"
+                  backgroundColor: "grey",
+                  padding: "5px",
                 }}
                 onChange={(e) => {
                   prop.setquerry(e.target.value);
                 }}
+                
               />
             </Form>
           </Navbar.Collapse>

@@ -1,14 +1,13 @@
-import React, { useEffect,useState } from 'react'
-import HeroSection from '../componants/HeroSection';
-import NavBar from '../componants/NavBar'
-
-
-
+import React, { useEffect, useState } from "react";
+import HeroSection from "../componants/HeroSection";
+import NavBar from "../componants/NavBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const HomePage = () => {
-  const [current,setCurrent] = useState(null);
-  const [location,setLocation] = useState(null);
-  const [forecast,setForecast] = useState(null);
-  const [querry,setQuerry] = useState("Varanasi");
+  const [current, setCurrent] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [forecast, setForecast] = useState(null);
+  const [querry, setQuerry] = useState("Delhi");
 
   const getData = async (querry) => {
     const options = {
@@ -30,8 +29,67 @@ const HomePage = () => {
         setForecast(response.forecast);
       })
       .catch((err) => console.error(err));
+  };
+
+  function getCoordintes() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+      var lat = crd.latitude.toString();
+      var lng = crd.longitude.toString();
+      var coordinates = [lat, lng];
+      console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+      var xhr = new XMLHttpRequest();
+      xhr.open(
+        "GET",
+        "https://us1.locationiq.com/v1/reverse.php?key=pk.64989697be948cf9dfcbbdce26200585&lat=" +
+          lat +
+          "&lon=" +
+          lng +
+          "&format=json",
+        true
+      );
+      xhr.send();
+      xhr.onreadystatechange = processRequest;
+      xhr.addEventListener("readystatechange", processRequest, false);
+
+      function processRequest(e) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+          var city = response.address.city;
+          setQuerry(city);
+          return;
+        }
+      }
+      return;
+    }
+
+    function error(err) {
+      toast.info(
+        "You Have To Enable Location Or Search Your City Name To Get Live Data"
+        ,{
+          position:"top-center",
+          pauseOnHover:"true",
+          theme:"dark"
+        }
+        );
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
   }
+  useEffect(()=>{
+    getCoordintes();
+  },[]);
+
   useEffect(() => {
+    if (querry === ""){
+      setQuerry("Delhi");
+    }
     getData(querry);
   }, [querry]);
 
@@ -41,12 +99,18 @@ const HomePage = () => {
       {current == null ? (
         <h1>Loading</h1>
       ) : (
-        <div>
-          <HeroSection data={current} location={location} forecast={forecast} />
-        </div>
+        
+          <div>
+            <ToastContainer></ToastContainer>
+            <HeroSection
+              data={current}
+              location={location}
+              forecast={forecast}
+            />
+          </div>
       )}
     </>
   );
-}
+};
 
-export default HomePage
+export default HomePage;

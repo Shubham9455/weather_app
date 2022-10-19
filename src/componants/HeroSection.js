@@ -1,28 +1,34 @@
 import React from "react";
 import "./HeroSection.css";
+
 const HeroSection = (props) => {
   const [src, setSrc] = React.useState("/video/3177755878.mp4");
-  const [search, setSearch] = React.useState("");
-
   const { data, location } = props;
   const { temp_c, condition, wind_kph, wind_dir, pressure_mb ,cloud,humidity} = data;
   const { name, country } = location;
-  // const {pressure_mb,humidity,feelslike_c} = condition;
-  const { text, icon } = data.condition;
+  const { text, icon } = condition;
+  const [forecastclicked,setforecastclicked] = React.useState(false);
 
   React.useEffect(() => {
-    if (text.includes("rain") && text.includes("Light")) {
+    if (text.includes("rain")) {
       setSrc("/video/rain.mp4");
     } else if (text.includes("rain") && text.includes("Heavy")) {
       setSrc("/video/heavy_rain.mp4");
     } else if (text.includes("cloud")) {
       setSrc("/video/cloudy.mp4");
-    } else if (text.includes("sun")) {
-      setSrc("/video/sunny.mp4");
+    } else if (text.includes("Sun")) {
+      setSrc("/video/Sunny.mp4");
     } else {
       setSrc("/video/3177755878.mp4");
     }
   }, [text]);
+  // function changeData(item){
+  //   {temp_c} = item;
+  // }
+
+  React.useEffect(()=>{
+
+  },[forecastclicked]);
 
   return (
     <div className="hero-container">
@@ -69,7 +75,9 @@ const HeroSection = (props) => {
       <div className="three_day_forecast">
         {props.forecast.forecastday.map((item,index) => {
           return (
-            <div className="forecast" key={index}>
+            <div className="forecast" key={index} onClick={(()=>{
+              console.log(item);
+        })}>
               <h3>{item.date}</h3>
               <img src={item.day.condition.icon} alt="" />
               <h4>{item.day.condition.text}</h4>
