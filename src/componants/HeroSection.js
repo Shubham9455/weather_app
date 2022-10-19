@@ -81,7 +81,7 @@ const HeroSection = (props) => {
           return (
             <div className="forecast" key={index} onClick={(()=>{
               console.log(item);
-              navigator("/forecast",{state:{item:item}});
+              navigator("/forecast",{state:{item:item,city:name,country:country}});
         })}>
               <h3>{item.date}</h3>
               <img src={item.day.condition.icon} alt="" />
