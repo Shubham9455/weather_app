@@ -95,7 +95,7 @@ const HomePage = () => {
 
   return (
     <>
-      <NavBar setquerry={setQuerry} querry={querry} />
+      <NavBar setquerry={setQuerry} querry={querry} homepage={true} />
       {current == null ? (
         <h1>Loading</h1>
       ) : (

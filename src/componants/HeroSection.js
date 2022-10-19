@@ -1,13 +1,17 @@
 import React from "react";
 import "./HeroSection.css";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = (props) => {
   const [src, setSrc] = React.useState("/video/3177755878.mp4");
+  const navigator = useNavigate();
   const { data, location } = props;
   const { temp_c, condition, wind_kph, wind_dir, pressure_mb ,cloud,humidity} = data;
   const { name, country } = location;
   const { text, icon } = condition;
   const [forecastclicked,setforecastclicked] = React.useState(false);
+  const [item, setItem] = React.useState(null);
+  
 
   React.useEffect(() => {
     if (text.includes("rain")) {
@@ -27,7 +31,7 @@ const HeroSection = (props) => {
   // }
 
   React.useEffect(()=>{
-
+    console.log(forecastclicked);
   },[forecastclicked]);
 
   return (
@@ -77,6 +81,7 @@ const HeroSection = (props) => {
           return (
             <div className="forecast" key={index} onClick={(()=>{
               console.log(item);
+              navigator("/forecast",{state:{item:item}});
         })}>
               <h3>{item.date}</h3>
               <img src={item.day.condition.icon} alt="" />
