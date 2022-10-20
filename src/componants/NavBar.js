@@ -16,6 +16,7 @@ const NavBar = (prop) => {
         style={{ position: "fixed", width: "100%", zIndex: "1" }}
       >
         <Container fluid>
+          
           <Navbar.Brand
             style={{
               marginLeft: "50px",
@@ -24,6 +25,7 @@ const NavBar = (prop) => {
               window.location.href = "/";
             }}
           >
+            <img src="/cloudy-day.png" alt="" style={{ height: "40px" }} />
             Weatherly
           </Navbar.Brand>
 
@@ -33,29 +35,27 @@ const NavBar = (prop) => {
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
-            >
-            </Nav>
+            ></Nav>
             <Form
               className="d-flex"
               style={{ marginRight: "20px" }}
               onSubmit={(e) => e.preventDefault()}
             >
-              
-                <input
-                  type="city_search"
-                  placeholder="Saerch for City"
-                  style={{
-                    width: "300px",
-                    margin: "10px auto",
-                    borderRadius: "25px",
-                    paddingInline: "20px",
-                    backgroundColor: "grey",
-                    padding: "5px",
-                  }}
-                  onChange={(e) => {
-                    prop.setquerry(e.target.value);
-                  }}
-                />
+              <input
+                type="city_search"
+                placeholder="Saerch for City"
+                style={{
+                  width: "300px",
+                  margin: "10px auto",
+                  borderRadius: "25px",
+                  paddingInline: "20px",
+                  backgroundColor: "grey",
+                  padding: "5px",
+                }}
+                onChange={(e) => {
+                  prop.setquerry(e.target.value);
+                }}
+              />
             </Form>
           </Navbar.Collapse>
         </Container>
