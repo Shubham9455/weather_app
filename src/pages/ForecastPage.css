@@ -20,15 +20,19 @@ video {
 
 .date {
     background-color: rgba(0, 0, 0, 0.4);
-    /* width: 70%; */
     border-radius: 10px;
+    width: 90%;
     color: #fff;
-    padding: 0 1rem;
+    padding: 1px 40px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: space-around;
     top: 80px;
     position: fixed;
+}
+.date>h1{
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 
@@ -69,7 +73,25 @@ video {
     justify-content: space-around;
     top: 450px;
     position: fixed;
+    margin-bottom: 40px;
     
+}
+
+
+@media screen and (max-width: 960px)  {
+  .date>h1{
+    font-size: 20px;
+  }
+  .city_temp_weather2 {
+    top: 15%;
+  }
+  .other_details2{
+    top: 32%;
+  }
+  .graphs{
+    top: 40%;
+  }
+
 }
 
 

@@ -63,6 +63,7 @@ const ForecastPage = () => {
       </Navbar>
       <div className="main_container">
         <video autoPlay loop src={src}></video>
+        
         <div className="date">
           <h1>{location.state.item.date}</h1>
         </div>
@@ -71,7 +72,7 @@ const ForecastPage = () => {
             <h1>{location.state.city}</h1>
             <h5>{location.state.country}</h5>
           </div>
-          <div>
+          <div> 
             <img src={icon} alt="" />
             <h3>{text}</h3>
           </div>

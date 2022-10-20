@@ -106,16 +106,17 @@ video {
   }
 
   .three_day_forecast{
-    top: 500px;
+    top: 50%;
   }
 
   .city_temp_weather{
-    top: 100px;
+    top: 20%;
   }
   .other_details{
-    top: 350px;
+    top: 40%;
     /* display: block; */
     /* font-size: ; */
+    
     
   }
   
@@ -137,6 +138,4 @@ video {
   .forecast>h4{
     font-size: 0.8rem;
   }
-
-  
 }
