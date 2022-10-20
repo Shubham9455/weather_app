@@ -7,7 +7,6 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = (prop) => {
-  const { homepage } = prop;
   return (
     <div>
       <Navbar
@@ -19,7 +18,6 @@ const NavBar = (prop) => {
         <Container fluid>
           <Navbar.Brand
             style={{
-              margin: homepage ? "0px" : "0px auto",
               marginLeft: "50px",
             }}
             onClick={() => {
@@ -42,7 +40,7 @@ const NavBar = (prop) => {
               style={{ marginRight: "20px" }}
               onSubmit={(e) => e.preventDefault()}
             >
-              {homepage ? (
+              
                 <input
                   type="city_search"
                   placeholder="Saerch for City"
@@ -58,7 +56,6 @@ const NavBar = (prop) => {
                     prop.setquerry(e.target.value);
                   }}
                 />
-              ) : null}
             </Form>
           </Navbar.Collapse>
         </Container>

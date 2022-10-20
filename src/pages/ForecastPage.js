@@ -3,7 +3,11 @@ import NavBar from '../componants/NavBar'
 import { useLocation } from "react-router-dom";
 import './ForecastPage.css'
 import PlotData from '../componants/PlotData';
-
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 
 const ForecastPage = () => {
@@ -36,7 +40,26 @@ const ForecastPage = () => {
   console.log(location.state.city);
   return (
     <div>
-      <NavBar homepage={false} />
+      <Navbar
+        bg="dark"
+        expand="lg"
+        variant="dark"
+        style={{ position: "fixed", width: "100%", zIndex: "1" }}
+      >
+        <Container fluid>
+          <Navbar.Brand
+            style={{
+              margin:"1px auto",
+              // marginLeft: "50px",
+            }}
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            Weatherly
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
       <div className="main_container">
         <video autoPlay loop src={src}></video>
         <div className="date">
@@ -78,7 +101,7 @@ const ForecastPage = () => {
             <h3 className="det_name">UV</h3>
           </div>
         </div>
-        <div className='graphs'>
+        <div className="graphs">
           <PlotData />
         </div>
       </div>

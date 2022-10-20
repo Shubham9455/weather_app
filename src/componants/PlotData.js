@@ -31,13 +31,15 @@ const PlotData = () => {
       content:
         "{name} </br> <strong>Temperature: </strong> </br> Min: {y[0]} °C, Max: {y[1]} °C",
     },
-    // backgroundColor: "rgba(0, 0, 0, 0)",
+    backgroundColor: "rgba(0, 0, 0, 0)",
+    theme: "dark2",
     data: [
       {
         type: "rangeSplineArea",
         fillOpacity: 0.2,
         color: "#1DB3DC",
         indexLabelFormatter: formatter,
+
         dataPoints: [
           { label: "Monday", y: [15, 26], name: "rainy" },
           { label: "Tuesday", y: [15, 27], name: "rainy" },
@@ -51,7 +53,7 @@ const PlotData = () => {
     ],
   };
   return (
-    <div style={{ width: "100%", hight: "100%"}}>
+    <div style={{ width: "100%", hight: "100%" }}>
       <CanvasJSChart
         options={options}
         containerProps={{  }}
