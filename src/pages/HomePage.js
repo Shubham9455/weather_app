@@ -70,7 +70,7 @@ const HomePage = () => {
     }
 
     function error(err) {
-      toast.info(
+      toast.error(
         "You Have To Enable Location Or Search Your City Name To Get Live Data"
         ,{
           position:"top-center",
@@ -78,12 +78,18 @@ const HomePage = () => {
           theme:"dark"
         }
         );
+        
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   }
   useEffect(()=>{
     getCoordintes();
+    toast.info("You Can Click On Dates To Get More Details About The Day :)",{
+      position:"bottom-center",
+      theme:"dark",
+      pauseOnHover:"true"
+    });
   },[]);
 
   useEffect(() => {

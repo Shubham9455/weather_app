@@ -14,14 +14,23 @@ const HeroSection = (props) => {
   
 
   React.useEffect(() => {
-    if (text.includes("rain")) {
+    if (text.toLowerCase().includes("rain")) {
       setSrc("/video/rain.mp4");
-    } else if (text.includes("rain") && text.includes("Heavy")) {
+    } else if (
+      text.toLowerCase().includes("rain") &&
+      text.toLowerCase().includes("heavy")
+    ) {
       setSrc("/video/heavy_rain.mp4");
-    } else if (text.includes("cloud")) {
+    } else if (text.toLowerCase().includes("cloud")) {
       setSrc("/video/cloudy.mp4");
-    } else if (text.includes("Sun")) {
+    } else if (text.toLowerCase().includes("sun")) {
       setSrc("/video/Sunny.mp4");
+    } else if (text.toLowerCase().includes("clear")) {
+      setSrc("/video/clear.mp4");
+    } else if (text.toLowerCase().includes("snow")) {
+      setSrc("/video/snow.mp4");
+    } else if (text.toLowerCase().includes("thunder")) {
+      setSrc("/video/lightning.mp4");
     } else {
       setSrc("/video/3177755878.mp4");
     }
