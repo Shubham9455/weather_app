@@ -32,7 +32,7 @@ video {
 }
 
 
-.city_temp_weather {
+.city_temp_weather2 {
   background-color: rgba(0, 0, 0, 0.4);
   width: 90%;
   border-radius: 10px;
@@ -45,7 +45,7 @@ video {
   position: fixed;
 }
 
-.other_details{
+.other_details2{
   background-color: rgba(0, 0, 0, 0.4);
   width: 90%;
   border-radius: 10px;

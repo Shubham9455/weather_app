@@ -23,6 +23,7 @@ const ForecastPage = () => {
   } = location.state.item.day;
   const {text,icon} = condition;
   const [src,setSrc] = React.useState("/video/3177755878.mp4");
+  const { hour} = location.state.item;
 
   React.useEffect(() => {
     if (text.includes("rain")) {
@@ -37,7 +38,7 @@ const ForecastPage = () => {
       setSrc("/video/3177755878.mp4");
     }
   }, [text]);
-  console.log(location.state.city);
+  console.log(location.state.item);
   return (
     <div>
       <Navbar
@@ -65,7 +66,7 @@ const ForecastPage = () => {
         <div className="date">
           <h1>{location.state.item.date}</h1>
         </div>
-        <div className="city_temp_weather">
+        <div className="city_temp_weather2">
           <div className="city">
             <h1>{location.state.city}</h1>
             <h5>{location.state.country}</h5>
@@ -79,7 +80,7 @@ const ForecastPage = () => {
             <h1>{avgtemp_c}°C</h1>
           </div>
         </div>
-        <div className="other_details">
+        <div className="other_details2">
           <div className="others">
             <h4>{mintemp_c} °C</h4>
             <h3 className="det_name">Min Temp</h3>
@@ -102,7 +103,7 @@ const ForecastPage = () => {
           </div>
         </div>
         <div className="graphs">
-          <PlotData />
+          <PlotData hourData = {hour}/>
         </div>
       </div>
     </div>
