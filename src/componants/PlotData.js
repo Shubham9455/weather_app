@@ -1,14 +1,10 @@
-import { render } from "@testing-library/react";
 import React from "react";
-
-import { Component } from "react";
 import CanvasJSReact from "../assets/canvasjs.react.js";
 
-var CanvasJS = CanvasJSReact.CanvasJS;
+
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const PlotData = (props) => {
-  var customMarkers = [];
   console.log(props);
   const hourData = props.hourData;
 

@@ -1,19 +1,14 @@
 import React from 'react'
-import NavBar from '../componants/NavBar'
 import { useLocation } from "react-router-dom";
 import './ForecastPage.css'
 import PlotData from '../componants/PlotData';
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 
 
 const ForecastPage = () => {
   const location = useLocation();
   const {
-    avghumidity,
     avgtemp_c,
     condition,
     daily_chance_of_rain,
@@ -51,7 +46,6 @@ const ForecastPage = () => {
           <Navbar.Brand
             style={{
               margin: "1px auto",
-              // marginLeft: "50px",
             }}
             onClick={() => {
               window.location.href = "/";

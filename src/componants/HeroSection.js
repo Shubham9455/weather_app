@@ -10,7 +10,6 @@ const HeroSection = (props) => {
   const { name, country } = location;
   const { text, icon } = condition;
   const [forecastclicked,setforecastclicked] = React.useState(false);
-  const [item, setItem] = React.useState(null);
   
 
   React.useEffect(() => {
@@ -35,9 +34,6 @@ const HeroSection = (props) => {
       setSrc("/video/3177755878.mp4");
     }
   }, [text]);
-  // function changeData(item){
-  //   {temp_c} = item;
-  // }
 
   React.useEffect(()=>{
     console.log(forecastclicked);

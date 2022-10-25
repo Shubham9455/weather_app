@@ -42,7 +42,6 @@ const HomePage = () => {
       var crd = pos.coords;
       var lat = crd.latitude.toString();
       var lng = crd.longitude.toString();
-      var coordinates = [lat, lng];
       console.log(`Latitude: ${lat}, Longitude: ${lng}`);
       var xhr = new XMLHttpRequest();
       xhr.open(
