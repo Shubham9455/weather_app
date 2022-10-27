@@ -13,48 +13,128 @@ const PlotData = (props) => {
     title: {
       text: "Weekly Weather Forecast",
     },
+    axisX: {
+      title: "Time",
+      
+    },
     axisY: {
+      suffix: " °C",
+      maximum: 40,
+      gridThickness: 1,
+    },
+    axisY2: {
       suffix: " °C",
       maximum: 40,
       gridThickness: 1,
     },
     toolTip: {
       shared: true,
-      content:
-        "{name} </br> <strong>Temperature: </strong> {y[0]}</br> Feels Like: {y[1]} °C ",
     },
     backgroundColor: "rgba(0, 0, 0, 0)",
     theme: "dark2",
+    // data: [
+    //   {
+    //     type: "line",
+    //     axisYType: "secondary",
+    //     fillOpacity: 0.2,
+    //     color: "#1DB3DC",
+    //     name: "Temperature",
+    //     dataPoints: [
+    //       {
+    //         label: hourData[0].time.slice(11),
+    //         y: hourData[0].temp_c,
+    //         name: hourData[0].condition.text,
+    //       },
+    //       {
+    //         label: hourData[6].time.slice(11),
+    //         y: hourData[6].temp_c,
+    //         name: hourData[6].condition.text,
+    //       },
+    //       {
+    //         label: hourData[12].time.slice(11),
+    //         y: hourData[12].temp_c,
+    //         name: hourData[12].condition.text,
+    //       },
+    //       {
+    //         label: hourData[18].time.slice(11),
+    //         y: hourData[18].temp_c,
+    //         name: hourData[18].condition.text,
+    //       },
+    //       {
+    //         label: hourData[23].time.slice(11),
+    //         y: hourData[23].temp_c,
+    //         name: hourData[23].condition.text,
+    //       },
+    //     ],
+    //   },
+    // ],
     data: [
       {
-        type: "rangeSplineArea",
+        type: "line",
+        axisYType: "secondary",
         fillOpacity: 0.2,
-        color: "#1DB3DC",
-
+        color: "#DC1D1D",
+        name: "Temperature",
+        yValueFormatString: "Temprature:#,###°C",
         dataPoints: [
           {
             label: hourData[0].time.slice(11),
-            y: [hourData[0].temp_c, hourData[0].feelslike_c],
+            y: hourData[0].temp_c,
             name: hourData[0].condition.text,
           },
           {
             label: hourData[6].time.slice(11),
-            y: [hourData[6].temp_c, hourData[6].feelslike_c],
+            y: hourData[6].temp_c,
             name: hourData[6].condition.text,
           },
           {
             label: hourData[12].time.slice(11),
-            y: [hourData[12].temp_c, hourData[12].feelslike_c],
+            y: hourData[12].temp_c,
             name: hourData[12].condition.text,
           },
           {
             label: hourData[18].time.slice(11),
-            y: [hourData[18].temp_c, hourData[18].feelslike_c],
+            y: hourData[18].temp_c,
             name: hourData[18].condition.text,
           },
           {
             label: hourData[23].time.slice(11),
-            y: [hourData[23].temp_c, hourData[23].feelslike_c],
+            y: hourData[23].temp_c,
+            name: hourData[23].condition.text,
+          },
+        ],
+      },
+      {
+        type: "line",
+        fillOpacity: 0.2,
+        axisYType: "secondary",
+        color: "#1DDC46",
+        name: "Feels Like",
+        yValueFormatString: "Feels Like:#,###°C",
+        dataPoints: [
+          {
+            label: hourData[0].time.slice(11),
+            y: hourData[0].feelslike_c,
+            name: hourData[0].condition.text,
+          },
+          {
+            label: hourData[6].time.slice(11),
+            y: hourData[6].feelslike_c,
+            name: hourData[6].condition.text,
+          },
+          {
+            label: hourData[12].time.slice(11),
+            y: hourData[12].feelslike_c,
+            name: hourData[12].condition.text,
+          },
+          {
+            label: hourData[18].time.slice(11),
+            y: hourData[18].feelslike_c,
+            name: hourData[18].condition.text,
+          },
+          {
+            label: hourData[23].time.slice(11),
+            y: hourData[23].feelslike_c,
             name: hourData[23].condition.text,
           },
         ],
