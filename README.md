@@ -1,4 +1,19 @@
-# Getting Started with Create React App
+# Weatherly
+
+Weatherly is a React App,It has following awesome features:
+
+  - Live Weather Report
+  - Backgroung Video changes with weather
+  - 3 Days Forecast With Awesome Graphical Representation of Temprature Changes
+  - Search Feature
+  - Amazing UI
+  - Adaptive to Screen size
+  
+ The website is hosted on :
+ 
+          https://weatherly-six.vercel.app/
+              
+ <hr/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
